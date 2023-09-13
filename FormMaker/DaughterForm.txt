@@ -1,0 +1,1 @@
+INSERT INTO svod2.form(form,master,periodic,modeenter,hassubject,hasfacility, hasterritory,short,name,upto,note,department,changedate) VALUES (1019,406,4,2,1,0,0,'','test form','full name of test form','','Экономический','23.06.2014 0:00:00')
