@@ -1,0 +1,64 @@
+﻿@page "{formid}, {type}"
+@model FormMaker.Pages.formColumnModel
+@{
+    ViewData["Title"] = "Создание столбца";
+}
+
+<div class="container-fluid">
+    <form method="post" class="row g-3">
+        <div class="row editform">
+            <div class="col-md-6">
+                <label for="inputNote" class="form-label">Название</label>
+                <input type="text" class="form-control" name="Name" id="inputNote">
+            </div>
+            <div class="col-md-3">
+                <label for="inputNote" class="form-label">Заметки</label>
+                <input type="text" class="form-control" name="Note" id="inputNote">
+            </div>
+        </div>
+        <div class="row editform">
+            <div class="col-md-3">
+                <label for="inputNote" class="form-label">Compute</label>
+                <input type="text" class="form-control" name="Compute" id="inputNote">
+            </div>
+            <div class="col-md-3">
+                <label for="inputNote" class="form-label">Precompute</label>
+                <input type="text" class="form-control" name="Precompute" id="inputNote">
+            </div>
+            <div class="col-md-3">
+                <label for="inputNote" class="form-label">Outercompute</label>
+                <input type="text" class="form-control" name="Outercompute" id="inputNote">
+            </div>
+        </div>
+        <div class="row editform">
+            <div class="col-md-3">
+                <label for="inputNote" class="form-label">Compute</label>
+                <select class="form-select" name="Summation">
+                    <option selected>Неопределено</option>
+                    <option value="1">Один</option>
+                    <option value="2">Два</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="inputNote" class="form-label">Данные обязательны для ввода?</label>
+                <select class="form-select" name="Mandatory">
+                    <option selected>Неопределено</option>
+                    <option value="1">Нет</option>
+                    <option value="2">Да</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="inputNote" class="form-label">Участвует в копировании?</label>
+                <select class="form-select" name="Coping">
+                    <option selected>Неопределено</option>
+                    <option value="1">Нет</option>
+                    <option value="2">Да</option>
+                </select>
+            </div>
+        </div>
+        <div class="d-grid gap-2 d-md-block">
+            <button type="submit" asp-page-handler="create" asp-route-formid="@Model.FormID" asp-route-type="@Model.TypeForm" class="btn btn-primary">Продолжить</button>
+            <button type="submit" asp-page-handler="cancel" class="btn btn-secondary">Отменить изменения</button>
+        </div>
+    </form>
+</div>

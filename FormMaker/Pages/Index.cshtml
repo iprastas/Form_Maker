@@ -1,0 +1,22 @@
+﻿@page
+@model IndexModel
+@{
+	ViewData["Title"] = "Авторизация";
+}
+
+<div class="container-xxl">
+	<div class="text-center">
+		<h1 class="display-4">Вход</h1>
+	</div>
+	<form method="post" class="row col-4 offset-4">
+		<div class="form-outline mb-4">
+			<label class="form-label" for="user">Логин</label>
+			<input type="text" id="login" class="form-control" name="username" />
+		</div>
+		<div class="form-outline mb-4">
+			<label for="pwd" class="form-label col-5">Пароль</label>
+			<input type="password" class="form-control" id="pwd" name="password">
+		</div>
+		<button type="submit" asp-page-handler="enter" class="btn btn-primary btn-block mb-4">Войти</button>
+	</form>
+</div>

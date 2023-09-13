@@ -1,0 +1,42 @@
+﻿@page
+@model FormMaker.Pages.HomeModel
+@{
+	ViewData["Title"] = "Выбор типа формы";
+}
+
+<div class="container-xxl">
+	<form method="post" class="row col-4">
+
+		<div>
+			<p class="fs-4">Вводные формы</p>
+
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="TypeForm" value="Master">
+				<label class="form-check-label">
+					Master
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="TypeForm" value="Daughter">
+				<label class="form-check-label">
+					Дочерние
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="TypeForm" value="Simple">
+				<label class="form-check-label">
+					Простые
+				</label>
+			</div>
+
+			<p class="fs-4">Аналитические формы</p>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="TypeForm" value="Analitic">
+				<label class="form-check-label">
+					Аналитическая
+				</label>
+			</div>
+		</div>
+		<button type="submit" asp-page-handler="create" class="btn btn-primary btn-block mb-3" style="margin-top: 20px;">Создать форму</button>
+	</form>
+</div>

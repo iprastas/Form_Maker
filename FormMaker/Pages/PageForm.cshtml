@@ -1,0 +1,97 @@
+﻿@page "{type}"
+@model FormMaker.Pages.PageFormModel
+@{
+    ViewData["Title"] = "Создание формы";
+}
+
+
+<div class="container-fluid">
+    <form method="post" class="row g-3">
+        @if (Model.IsDaughter)
+        {
+            <div class="col-auto me-auto">
+                <input class="form-control" id="search_inp" placeholder="Искать..." type="text" />
+            </div>
+            <div class="col-md-12">
+                <select class="form-select" id="form_list" asp-for="@Model.FormMaster" asp-items="Model.Items" size="10"></select>
+            </div>
+            <div class="row editform">
+                <div class="col-md-3">
+                    <label for="inputNote" class="form-label">Короткое название</label>
+                    <input type="text" class="form-control" name="ShortName" id="inputNote">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputNote" class="form-label">Полное название</label>
+                    <input type="text" class="form-control" name="Name" id="inputNote">
+                </div>
+            </div>
+            <div class="row editform">
+                <div class="col-md-3">
+                    <label for="validationDefault01" class="form-label">ID</label>
+                    <input type="number" min="@Model.FormID" class="form-control" name="FormID" id="validationDefault01" required>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row editform">
+                <div class="col-md-3">
+                    <label for="validationDefault01" class="form-label">ID</label>
+                    <input type="number" min="@Model.FormID" class="form-control" name="FormID" id="validationDefault01" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="Periodic" class="form-label">Переодичность</label>
+                    <select class="form-select" asp-for="Period" name="Period" asp-items="@Form.ListOfPeriod"></select>
+                </div>
+            </div>
+            <div class="row editform">
+                <div class="col-md-3">
+                    <label for="inputNote" class="form-label">Короткое название</label>
+                    <input type="text" class="form-control" name="ShortName" id="inputNote">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputNote" class="form-label">Полное название</label>
+                    <input type="text" class="form-control" name="Name" id="inputNote">
+                </div>
+            </div>
+            <div class="row editform">
+                <div class="col-md-3">
+                    <label for="inputNote" class="form-label">Заметки</label>
+                    <input type="text" class="form-control" name="Note" id="inputNote">
+                </div>
+                <div class="col-md-3">
+                    <label for="inputNote" class="form-label">Департамент</label>
+                    <input type="text" class="form-control" name="Department" id="inputNote">
+                </div>
+                <div class="col-md-3">
+                    <label for="Passwordupto" class="form-label">Действует до..</label>
+                    <input type="date" class="form-control" name="Upto" id="Passwordupto">
+                </div>
+            </div>
+            <div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="HasSubject" value="1" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Свод по предприятиям
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="HasFacility" value="1" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Свод по объектам
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="HasTerritory" value="1" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Свод по территориям
+                    </label>
+                </div>
+            </div>
+        }
+        <div class="d-grid gap-2 d-md-block">
+            <button type="submit" asp-page-handler="create" asp-route-type="@Model.TypeForm" class="btn btn-primary">Продолжить</button>
+            <button type="submit" asp-page-handler="cancel" class="btn btn-secondary">Отменить изменения</button>
+        </div>
+    </form>
+</div>

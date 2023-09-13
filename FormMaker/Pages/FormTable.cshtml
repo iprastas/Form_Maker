@@ -1,0 +1,19 @@
+﻿@page "{FormID},{FormMaster},{type},{Name}"
+@model FormMaker.Pages.FormTableModel
+@{
+    ViewData["Title"] = "Форма";
+}
+
+
+<div class="container-fluid">
+    <h2 class="editform">@Model.Name</h2> 
+    <table class="table table-hover">
+
+    </table>
+    <form method="post">
+        <div class="d-grid gap-2 d-md-block">
+            <button type="submit" asp-page-handler="row" asp-route-formid="@Model.FormID" asp-route-type="@Model.TypeForm" class="btn btn-primary">Создать строку</button>
+            <button type="submit" asp-page-handler="column" asp-route-formid="@Model.FormID" asp-route-type="@Model.TypeForm" class="btn btn-primary">Стоздать столбец</button>
+        </div>
+    </form>
+</div>
